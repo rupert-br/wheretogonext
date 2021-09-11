@@ -4,7 +4,7 @@
   "description": "Planning your next trip",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass --watch scss:assets/css"
+    "compile:sass": "sass --watch scss:public/css"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "dependencies": {
     "autoprefixer": "^10.3.4",
     "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
     "postcss-cli": "^8.3.1"
   }
 }
