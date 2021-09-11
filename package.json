@@ -1,0 +1,32 @@
+{
+  "name": "wheretogonext",
+  "version": "1.0.0",
+  "description": "Planning your next trip",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch scss:assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rupert-br/wheretogonext.git"
+  },
+  "keywords": [
+    "Bootstrap",
+    "bootstrap-v5",
+    "sass"
+  ],
+  "author": "Rupert Brandstätter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rupert-br/wheretogonext/issues"
+  },
+  "homepage": "https://github.com/rupert-br/wheretogonext#readme",
+  "devDependencies": {
+    "sass": "^1.39.2"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.3.4",
+    "bootstrap": "^5.1.1",
+    "postcss-cli": "^8.3.1"
+  }
+}
