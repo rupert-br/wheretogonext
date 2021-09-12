@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-    <title>Starter Template · Bootstrap v5.1</title>
+    <title>Where to go next?</title>
     <link rel="stylesheet" href="css/style.css">
 
   </head>
@@ -20,18 +20,22 @@
 
     <main>
       <h1>Find places with good weather for your next trip</h1>
-      <p class="fs-5 col-md-8">Quickly and easily get started with Bootstrap's compiled.</p>
+      <p class="fs-5 col-md-8">Quickly and easily get your trips planned.</p>
       
       <div class="py-2">
         <h2>Test</h2>
         <div class="row g-3">
-          <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Latitude</label>
-            <input type="text" class="form-control" id="inputEmail4">
+          <div class="col-md-3">
+            <label for="lat" class="form-label">Latitude</label>
+            <input type="text" class="form-control" id="lat">
           </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Longitude</label>
-            <input type="text" class="form-control" id="inputPassword4">
+          <div class="col-md-3">
+            <label for="lon" class="form-label">Longitude</label>
+            <input type="text" class="form-control" id="lon">
+          </div>
+          <div class="col-md-3">
+            <label for="radius" class="form-label">Radius</label>
+            <input type="text" class="form-control" id="radius">
           </div>
           <div class="col-12">
             <button onclick="getWeather()" class="btn btn-primary">Get Weather</button>
@@ -39,30 +43,9 @@
         </div>
       </div>
 
-      <hr class="col-3 col-md-2 mb-5">
-
-      <div class="row g-5">
-        <div class="col-md-6">
-          <h2>Starter projects</h2>
-          <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
-          <ul class="icon-list">
-            <li><a href="https://github.com/twbs/bootstrap-npm-starter" rel="noopener" target="_blank">Bootstrap npm starter</a></li>
-            <li class="text-muted">Bootstrap Parcel starter (coming soon!)</li>
-          </ul>
-        </div>
-
-        <div class="col-md-6">
-          <h2>Guides</h2>
-          <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
-          <ul class="icon-list">
-            <li><a href="../getting-started/introduction/">Bootstrap quick start guide</a></li>
-            <li><a href="../getting-started/webpack/">Bootstrap Webpack guide</a></li>
-            <li><a href="../getting-started/parcel/">Bootstrap Parcel guide</a></li>
-            <li><a href="../getting-started/contribute/">Contributing to Bootstrap</a></li>
-          </ul>
-        </div>
-      </div>
+      <div id="results"></div>
     </main>
+
     <footer class="pt-5 my-5 text-muted border-top">
       Created by Rupert Brandstätter &middot; &copy; 2021
     </footer>
