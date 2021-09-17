@@ -32,14 +32,14 @@ app.get('/get_weather/:lat/:lon/:radius', function (req, res) {
                 csvrow.splice(5, 2);
                 csvrow.splice(1, 2);
                 
-                let url_weather = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_key}`
-                axios({
-                    method: 'get',
-                    url: url_weather
-                  })
-                  .then(response => {
-                      console.log(response.data);
-                  })
+                // let url_weather = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_key}`
+                // axios({
+                //     method: 'get',
+                //     url: url_weather
+                //   })
+                //   .then(response => {
+                //       console.log(response.data);
+                //   })
                 
                 csvrow.push(Math.round(distanceFromHome));
                 csvData.push(csvrow);
@@ -52,15 +52,6 @@ app.get('/get_weather/:lat/:lon/:radius', function (req, res) {
 
             res.send(csvJson);
         });
-
-    
-    
-
-    //
-    //
-    //console.log(url_weather);
-
-    
 
   });
 
