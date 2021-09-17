@@ -1,6 +1,11 @@
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
+const parse = require('csv-parse');
+const fs = require('fs');
+
+const distance = require("./public/js/calculateDistance");
+
 require('dotenv').config()
 
 const app = express();
@@ -15,20 +20,45 @@ app.get('/', function(req, res) {
 app.get('/get_weather/:lat/:lon/:radius', function (req, res) {
     let lat = req.params.lat;
     let lon = req.params.lon;
+    let radius = req.params.radius
 
-    console.log(lat, lon);
+    const csvData = [];
+    fs.createReadStream('crags_austria.csv')
+        .pipe(parse({delimiter: ';', from_line: 2}))
+        .on('data', function(csvrow) {
+            if (distance.calculateDistance(lat, lon, csvrow[5], csvrow[6]) < radius) {
+                let distanceFromHome = distance.calculateDistance(lat, lon, csvrow[5], csvrow[6]);
+                let API_key = process.env.API_KEY;
+                csvrow.splice(5, 2);
+                csvrow.splice(1, 2);
+                
+                //let url_weather = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly&units=metric&appid=${API_key}`
+                csvrow.push(Math.round(distanceFromHome));
+                csvData.push(csvrow);
+            }     
+        })
+        .on('end',function() {
+            console.log(csvData);
+            var csvJson = JSON.stringify(csvData);
+            console.log(csvJson);
 
-    let API_key = process.env.API_KEY;
-    let url_weather = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_key}`
-    console.log(url_weather);
+            res.send(csvJson);
+        });
 
-    axios({
-        method: 'get',
-        url: url_weather
-      })
-      .then(response => {
-          res.send(response.data.current);
-      })
+    
+    
+
+    //
+    //
+    //console.log(url_weather);
+
+    //axios({
+    //    method: 'get',
+    //    url: url_weather
+    //  })
+    //  .then(response => {
+    //      res.send(response.data.current);
+    //  })
 
   });
 
