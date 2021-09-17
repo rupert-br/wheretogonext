@@ -11,24 +11,22 @@
   </head>
   <body>
     
-  <div class="col-lg-10 mx-auto p-3 py-md-5">
-    <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+  <div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="d-flex align-items-center pb-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
         <span class="fs-2 text-primary fw-bold">Where to go next?</span>
       </a>
     </header>
 
     <main>
-      <h1>Find places with good weather for your next trip</h1>
-      <p class="fs-5 col-md-8">Quickly and easily get your trips planned.</p>
 
       <div class="mx-auto">
         <label for="radius" class="form-label">Radius: <span id="radius-value">30</span> km</label>
-        <input autocomplete="off" type="range" onchange="updateRadius()" class="form-range" min="0" max="300" step="5" id="radius" value=30>
-        <button onclick="getWeather()" class="btn btn-primary">Search crags</button>
+        <input autocomplete="off" type="range" onchange="updateRadius()" class="form-range" min="0" max="300" step="1" id="radius" value=30>
+        <button onclick="getWeather()" class="btn btn-primary mt-2">Search</button>
       </div>
 
-      <div id="results"></div>
+      <div class="mt-2" id="results"></div>
     </main>
 
     <footer class="pt-5 my-5 text-muted border-top">
