@@ -1,5 +1,5 @@
 function calculateDistance (lat1, lon1, lat2, lon2) {
-    //calculate disantce between two gps coordinates with havesine formula
+    //calculate disantce between two gps coordinates with haversine formula
     const R = 6371e3; // metres
     const phi1 = lat1 * Math.PI/180; // φ, λ in radians
     const phi2 = lat2 * Math.PI/180;
