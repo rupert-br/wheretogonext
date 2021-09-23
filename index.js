@@ -29,8 +29,8 @@ app.get('/get_weather/:lat/:lon/:radius', function (req, res) {
             if (distance.calculateDistance(lat, lon, csvrow[5], csvrow[6]) < radius) {
                 let distanceFromHome = distance.calculateDistance(lat, lon, csvrow[5], csvrow[6]);
                 let API_key = process.env.API_KEY;
-                csvrow.splice(5, 2);
-                csvrow.splice(1, 2);
+                //csvrow.splice(5, 2);
+                //csvrow.splice(1, 2);
                 
                 // let url_weather = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&units=metric&appid=${API_key}`
                 // axios({
@@ -46,7 +46,6 @@ app.get('/get_weather/:lat/:lon/:radius', function (req, res) {
             }     
         })
         .on('end',function() {
-            console.log(csvData);
             var csvJson = JSON.stringify(csvData);
             console.log(csvJson);
 

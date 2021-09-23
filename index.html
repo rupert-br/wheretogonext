@@ -7,38 +7,36 @@
 
     <title>Where to go next?</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
 
   </head>
   <body>
-    
-  <div class="col-lg-8 mx-auto p-3 py-md-5">
-    <header class="d-flex align-items-center pb-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <span class="fs-2 text-primary fw-bold">Where to go next?</span>
-      </a>
-    </header>
-
-    <main>
-
+    <div id="over-map" class="overflow-auto bg-light col-lg-4 p-3 m-3 rounded shadow">
       <div class="mx-auto">
+        <div class="h4 text-primary">Where to go next?</div>
         <label for="radius" class="form-label">Radius: <span id="radius-value">30</span> km</label>
-        <input autocomplete="off" type="range" onchange="updateRadius()" class="form-range" min="0" max="300" step="1" id="radius" value=30>
+        <input autocomplete="off" type="range" onchange="updateRadius()" class="form-range px-1" min="0" max="300" step="1" id="radius" value=30>
         <button onclick="getWeather()" class="btn btn-primary mt-2">Search</button>
       </div>
 
-      <div class="h4 mt-4">Results</div>
-      <div class="mt-2" id="results"></div>
-    </main>
+      <div class="" id="results"></div>
+    </div>
 
-    <footer class="pt-5 my-5 text-muted border-top">
-      Created by Rupert Brandstätter &middot; &copy; 2021
-    </footer>
-  </div>
+    <div id="mapid"></div>
 
-  <script src="../public/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/getWeather.js"></script>
-  <script src="js/calculateDistance.js"></script>
-  <script src="js/updateRadius.js"></script>
-  
+    <script src="../public/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/getWeather.js"></script>
+    <script src="js/calculateDistance.js"></script>
+    <script src="js/updateRadius.js"></script>
+    <script src="js/map.js"></script>
   </body>
 </html>
