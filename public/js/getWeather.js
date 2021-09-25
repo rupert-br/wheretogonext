@@ -6,6 +6,7 @@ function getWeather(){
         let lat = currentLatitude;
         let lon = currentLongitude;
         let radius = document.getElementById('radius').value;
+        
     
         let url = `/get_weather/${lat}/${lon}/${radius}`;
         fetch(url)
