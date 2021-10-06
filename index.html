@@ -7,6 +7,9 @@
 
     <title>Where to go next?</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -17,10 +20,9 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 
-
   </head>
   <body>
-    <div id="over-map" class="overflow-auto bg-light col-lg-4 p-3 m-3 rounded shadow">
+    <div id="over-map" class="overflow-auto bg-light col-md-4 p-3 m-3 rounded shadow">
       <div class="mx-auto">
         <div class="h4 text-primary">Where to go next?</div>
         <label for="radius" class="form-label">Radius: <span id="radius-value">30</span> km</label>
@@ -28,7 +30,20 @@
         <button onclick="getWeather()" class="btn btn-primary mt-2">Search</button>
       </div>
 
+      <div id="counter">
+        Counter: {{ counter }}
+      </div>      
+      
       <div class="" id="results"></div>
+      <div>
+        <table class="table">
+          <tr>
+            <th>Crag</th>
+            <th>Routes</th>
+            <th>Weather forecast</th>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <div id="mapid"></div>
@@ -38,5 +53,6 @@
     <script src="js/calculateDistance.js"></script>
     <script src="js/updateRadius.js"></script>
     <script src="js/map.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

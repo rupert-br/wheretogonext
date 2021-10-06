@@ -12,6 +12,12 @@ $teal:    #20c997;
 $cyan:    #0dcaf0;
 // scss-docs-end color-variables
 
+// scss-docs-start border-radius-variables
+$border-radius:               .5rem !default;
+$border-radius-sm:            .4rem !default;
+$border-radius-lg:            .6rem !default;
+$border-radius-pill:          50rem !default;
+
 // Primary color
 $primary:  $indigo;
 
