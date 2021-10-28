@@ -1,3 +1,0 @@
-function getCrags(){
-    return false
-}
