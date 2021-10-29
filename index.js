@@ -94,10 +94,23 @@ app.get('/get_weather/:lat/:lon', function (req, res) {
      })
   });
 
+app.get('/get_city_by_posititon/:lat/:lon', function(req, res){
+    const lat = req.params.lat
+    const lon = req.params.lon
+    const url_cityByPosition = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
+    axios({
+        method: 'get',
+        url: url_cityByPosition
+    })
+    .then(response => {
+        res.send(response.data)
+    })
+})
+
 app.get('/get_city/:searchStr', function(req, res) {
     let searchStr = req.params.searchStr;
     // const url_city = `https://warnungen.zamg.at/wsapp/api/searchLocation?s=${searchStr}`
-    const url_city = `https://nominatim.openstreetmap.org/search.php?q=${searchStr}&format=json&countrycodes=at`
+    const url_city = `https://nominatim.openstreetmap.org/search.php?q=${searchStr}&format=json&countrycodes=at[,de]`
     axios({
         method: 'get',
         url: url_city
