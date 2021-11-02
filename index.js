@@ -8,7 +8,6 @@ require('dotenv').config()
 const path = __dirname + '/public';
 const app = express();
 
-// app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.static(path));
 app.use(express.json());
 
