@@ -107,6 +107,7 @@ app.get('/get_city_by_posititon/:lat/:lon', function(req, res){
 })
 
 app.get('/get_city/:searchStr', function(req, res) {
+    console.log('api called')
     let searchStr = req.params.searchStr;
     // const url_city = `https://warnungen.zamg.at/wsapp/api/searchLocation?s=${searchStr}`
     const url_city = `https://nominatim.openstreetmap.org/search.php?q=${searchStr}&format=json&countrycodes=at`
