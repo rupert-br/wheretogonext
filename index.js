@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
     res.sendFile(path + '/index.html');
 })
 
-app.get('/get_rating', function (req, res) {
+app.get('/get_climbing_rating', function (req, res) {
     const data = req.query
     const pop = data.pop
     const distance = parseFloat(data.distance)
@@ -25,49 +25,62 @@ app.get('/get_rating', function (req, res) {
     
     function getRating (pop, distance, temp, wind, humidity) {
         let rating = 0
+
+        // Increase ranking depending on rain
         if (pop > 0 && pop <= 0.5) {
-            rating += 1
+            rating = rating + 1
         }
         else if (pop > 0.5 && pop <= 0.7) {
-            rating += 3
+            rating = rating + 3
         }
         else if (pop > 0.7) {
-            rating += 5
+            rating = rating + 6
         }
         
-        if (temp > 0 && temp <= 10) {
+        // Increase ranking depending on temperature
+        if (temp > 0 && temp <= 5) {
+            rating = rating + 3
+        }
+        if (temp > 5 && temp <= 20) {
             rating = rating + 1
         }
         if (temp > 20 && temp <= 30) {
-            rating = rating + 1
-        }
-        if (temp > 30) {
-            rating = rating + 3
-        }
-
-        if (distance > 50 && distance <= 100) {
-            rating = rating + 1
-        }
-        else if (distance > 100 && distance <= 200) {
-            rating = rating + 3
-        }
-        else if (distance > 200) {
             rating = rating + 4
         }
+        if (temp > 30) {
+            rating = rating + 6
+        }
 
+        // Increase ranking depending on distance
+        if (distance > 0 && distance <= 50) {
+            rating = rating + 1
+        }
+        if (distance > 50 && distance <= 100) {
+            rating = rating + 3
+        }
+        else if (distance > 100 && distance <= 200) {
+            rating = rating + 4
+        }
+        else if (distance > 200) {
+            rating = rating + 6
+        }
+
+        // Increase ranking depending on wind
         if (wind > 0 && wind <= 2) {
-            rating += 1
+            rating = rating + 1
         }
         else if (wind > 10 && wind  <= 28) {
-            rating += 0.5
+            rating = rating + 0.5
         }
         else if (wind > 28) {
-            rating += 2
+            rating = rating + 2
         }
 
+        // Increase ranking depending on humidity
         if (humidity > 0.5) {
-            rating += 1
+            rating = rating + 1
         }
+
         return rating
     }
 
